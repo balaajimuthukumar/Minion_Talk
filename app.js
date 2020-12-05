@@ -1,0 +1,30 @@
+var buttonTranslate = document.querySelector("#btn-translate");
+var translator = document.querySelector("#translator");
+var languageInput = document.querySelector("#mylanguageInput");
+let url = "https://api.funtranslations.com/translate/minion.json";
+
+let inputvalue = "";
+let output = "";
+
+//This function is triggered by oninput event added in the html tag
+//This functino will listen to each and every element you store and 
+//returns it dynamically
+function getValue(value){
+    inputvalue = value;
+    console.log(inputvalue);
+}
+
+//This is an event listener to listen the button(Translate button) click event 
+buttonTranslate.addEventListener("click",function (){
+    url = url+"?text="+inputvalue;
+    //The fetch function is asynchronous and waits till
+    // a promise has returned
+    fetch(url).then(response => 
+        response.json()
+    ).then(json => {
+        output = json.contents.translated;
+        translator.innerHTML = output;
+    }).catch((err)=>{
+        console.error("Error:",err);
+    })
+});
