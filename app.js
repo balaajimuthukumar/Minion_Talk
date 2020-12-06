@@ -9,15 +9,14 @@ let output = "";
 //This function is triggered by oninput event added in the html tag
 //This functino will listen to each and every element you store and 
 //returns it dynamically
-function getValue(value){
-    inputvalue = value;
+function getValue(){
+    inputvalue = languageInput.value;
     console.log(inputvalue);
 }
 
 //This is an event listener to listen the button(Translate button) click event 
 buttonTranslate.addEventListener("click",function (){
     url = url+"?text="+inputvalue;
-    translator.innerText = "";
     //The fetch function is asynchronous and waits till
     // a promise has returned
     fetch(url,{
@@ -32,7 +31,6 @@ buttonTranslate.addEventListener("click",function (){
     ).then(json => {
         output = "";
         output = json.contents.translated;
-        translator.innerText = output;
     }).catch((err)=>{
         console.error("Error:",err);
     })
