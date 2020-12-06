@@ -19,7 +19,14 @@ buttonTranslate.addEventListener("click",function (){
     url = url+"?text="+inputvalue;
     //The fetch function is asynchronous and waits till
     // a promise has returned
-    fetch(url).then(response => 
+    fetch(url,{
+        header:{
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Request-Method':'*',
+            'Access-Control-Allow-Methods':'OPTIONS, POST',
+            'Access-Control-Allow-Headers':'*'
+        }
+    }).then(response => 
         response.json()
     ).then(json => {
         output = json.contents.translated;
