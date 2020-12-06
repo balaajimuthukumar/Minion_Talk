@@ -17,6 +17,7 @@ function getValue(value){
 //This is an event listener to listen the button(Translate button) click event 
 buttonTranslate.addEventListener("click",function (){
     url = url+"?text="+inputvalue;
+    translator.innerHTML = "";
     //The fetch function is asynchronous and waits till
     // a promise has returned
     fetch(url,{
