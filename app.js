@@ -30,6 +30,7 @@ buttonTranslate.addEventListener("click",function (){
     }).then(response => 
         response.json()
     ).then(json => {
+        output = "";
         output = json.contents.translated;
         translator.innerHTML = output;
     }).catch((err)=>{
