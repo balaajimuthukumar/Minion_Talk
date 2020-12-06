@@ -36,4 +36,5 @@ body{
     display:flex;
     flex-flow: column;
     max-width:105px;
+    opacity: 0.4;
 }
