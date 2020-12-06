@@ -25,10 +25,15 @@ body{
 }
 #translator{
     width:400px;
-    height:200px;
+    height:150px;
     border: 1px solid black;
     margin:auto;
     background-color: darkgoldenrod;
     border-radius: 1rem;
     text-align: center;
+}
+.list-img{
+    display:flex;
+    flex-flow: column;
+    max-width:105px;
 }
